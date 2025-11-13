@@ -1,6 +1,6 @@
 ﻿namespace Windows_Programming_Final_Project
 {
-    partial class Form1
+    partial class HomeForm
     {
         /// <summary>
         /// 設計工具所需的變數。
