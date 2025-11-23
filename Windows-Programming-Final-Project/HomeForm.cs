@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using GuessNumber;
 
-namespace Windows_Programming_Final_Project
+namespace WindowsProgrammingFinalProject
 {
     public partial class HomeForm : Form
     {
