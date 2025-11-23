@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using GuessNumber;
 
 namespace Windows_Programming_Final_Project
 {
@@ -15,6 +9,14 @@ namespace Windows_Programming_Final_Project
         public HomeForm()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GuessNumberForm guessNumberForm = new GuessNumberForm();
+            this.Hide();
+            guessNumberForm.ShowDialog();
+            this.Show();
         }
     }
 }

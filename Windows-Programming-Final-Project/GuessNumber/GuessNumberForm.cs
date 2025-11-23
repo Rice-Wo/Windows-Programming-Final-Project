@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Windows_Programming_Final_Project
+namespace GuessNumber
 {
     public partial class GuessNumberForm : Form
     {

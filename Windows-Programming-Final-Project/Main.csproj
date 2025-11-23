@@ -46,22 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GuessNumber.cs" />
+    <Compile Include="GuessNumber\GuessNumberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuessNumber\GuessNumberForm.Designer.cs" />
     <Compile Include="HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GuessNumberForm.cs" />
-    <Compile Include="GuessNumberForm.Designer.cs">
-      <DependentUpon>GuessNumberForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GuessNumberForm.resx">
-      <DependentUpon>GuessNumberForm.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="GuessNumber\GuessNumberForm.resx" />
     <EmbeddedResource Include="HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
