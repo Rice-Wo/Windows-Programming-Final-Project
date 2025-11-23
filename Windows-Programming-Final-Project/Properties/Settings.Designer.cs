@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Windows_Programming_Final_Project.Properties
+namespace WindowsProgrammingFinalProject.Properties
 {
 
 

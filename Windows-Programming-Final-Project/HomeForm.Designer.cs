@@ -1,4 +1,4 @@
-﻿namespace Windows_Programming_Final_Project
+﻿namespace WindowsProgrammingFinalProject
 {
     partial class HomeForm
     {
