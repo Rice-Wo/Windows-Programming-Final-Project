@@ -12,6 +12,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{02EA681E-C7D8-
 		Windows-Programming-Final-Project\GuessNumberForm.resx = Windows-Programming-Final-Project\GuessNumberForm.resx
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GameLogic", "GameLogic", "{9F567B28-4038-4A76-81B5-B8BB119D6B2B}"
+	ProjectSection(SolutionItems) = preProject
+		Windows-Programming-Final-Project\GuessNumber.cs = Windows-Programming-Final-Project\GuessNumber.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
