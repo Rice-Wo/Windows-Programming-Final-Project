@@ -1,4 +1,4 @@
-﻿namespace Windows_Programming_Final_Project.Blackjack
+﻿namespace WindowsProgrammingFinalProject.Blackjack
 {
     partial class BlackjackForm
     {

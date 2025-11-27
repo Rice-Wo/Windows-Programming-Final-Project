@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Windows_Programming_Final_Project.Blackjack
+namespace WindowsProgrammingFinalProject.Blackjack
 {
     internal class Blackjack
     {
