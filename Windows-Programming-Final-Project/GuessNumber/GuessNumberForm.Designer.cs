@@ -1,4 +1,4 @@
-﻿namespace GuessNumber
+﻿namespace WindowsProgrammingFinalProject.GuessNumber
 {
     partial class GuessNumberForm
     {
