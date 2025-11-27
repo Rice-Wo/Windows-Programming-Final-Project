@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsProgrammingFinalProject.RockPaperScissor
 {
@@ -11,10 +7,18 @@ namespace WindowsProgrammingFinalProject.RockPaperScissor
         public static readonly string[] input = { "石頭", "剪刀", "布" };
         public RPS() { }
 
-        public string Game(string userInput)
+        public string Game(string userInput, int? seed = null)
         {
+            Random rand;
+            if (seed == null)
+            {
+               rand  = new Random();
+            }
+            else
+            {
+                rand = new Random((int)seed);
+            }
             int user = Array.IndexOf(input, userInput);
-            Random rand = new Random(); 
             int computer = rand.Next(0, 3);
             int result = (user - computer + 3) % 3;
 
@@ -31,6 +35,6 @@ namespace WindowsProgrammingFinalProject.RockPaperScissor
 
         }
 
-        
+
     }
 }
