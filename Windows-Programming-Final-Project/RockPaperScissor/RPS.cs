@@ -5,6 +5,9 @@ namespace WindowsProgrammingFinalProject.RockPaperScissor
     public class RPS
     {
         public static readonly string[] input = { "石頭", "剪刀", "布" };
+        int winCount = 0;
+        int loseCount = 0;
+        int drawCount = 0;
 
         public string Game(string userInput, int? testInput = null)
         {
@@ -32,10 +35,23 @@ namespace WindowsProgrammingFinalProject.RockPaperScissor
                 2 => $"電腦出{input[computer]}，你贏了",
                 _ => $"輸入異常"
             };
+            switch(result)
+            {
+                case 0:
+                    drawCount++;
+                    break;
+                case 1:
+                    loseCount++;
+                    break;
+                case 2:
+                    winCount++;
+                    break;
+                default:
+                    break;
+            };
 
-            Console.WriteLine(resultMessage);
+        Console.WriteLine(resultMessage);
             return resultMessage;
-
         }
 
 

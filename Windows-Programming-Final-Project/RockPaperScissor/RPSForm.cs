@@ -16,5 +16,25 @@ namespace WindowsProgrammingFinalProject.RockPaperScissor
         {
             InitializeComponent();
         }
+        RPS rps = new RPS();
+
+        private void RockButton_Click(object sender, EventArgs e)
+        {
+            string result = rps.Game("石頭");
+            ResultLabel.Text = result;
+        }
+
+        private void ScissorButton_Click(object sender, EventArgs e)
+        {
+            string result = rps.Game("剪刀");
+            ResultLabel.Text = result;
+        }
+
+        private void PaperButton_Click(object sender, EventArgs e)
+        {
+            
+            string result = rps.Game("布");
+            ResultLabel.Text = result;
+        }
     }
 }
