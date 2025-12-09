@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using WindowsProgrammingFinalProject.GuessNumber;
+using WindowsProgrammingFinalProject.RockPaperScissor;
 
 namespace WindowsProgrammingFinalProject
 {
@@ -11,11 +12,11 @@ namespace WindowsProgrammingFinalProject
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void RPSGameButton_ClickEvent(object sender, EventArgs e)
         {
-            GuessNumberForm guessNumberForm = new GuessNumberForm();
+            RPSForm RPSForm = new RPSForm();
             this.Hide();
-            guessNumberForm.ShowDialog();
+            RPSForm.ShowDialog();
             this.Show();
         }
     }
