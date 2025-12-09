@@ -33,6 +33,7 @@
             this.PaperButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ResultLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -45,6 +46,7 @@
             this.RockButton.TabIndex = 0;
             this.RockButton.Text = "石頭";
             this.RockButton.UseVisualStyleBackColor = true;
+            this.RockButton.Click += new System.EventHandler(this.RockButton_Click);
             // 
             // ScissorButton
             // 
@@ -54,6 +56,7 @@
             this.ScissorButton.TabIndex = 1;
             this.ScissorButton.Text = "剪刀";
             this.ScissorButton.UseVisualStyleBackColor = true;
+            this.ScissorButton.Click += new System.EventHandler(this.ScissorButton_Click);
             // 
             // PaperButton
             // 
@@ -63,6 +66,7 @@
             this.PaperButton.TabIndex = 2;
             this.PaperButton.Text = "布";
             this.PaperButton.UseVisualStyleBackColor = true;
+            this.PaperButton.Click += new System.EventHandler(this.PaperButton_Click);
             // 
             // pictureBox1
             // 
@@ -80,11 +84,21 @@
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
             // 
+            // ResultLabel
+            // 
+            this.ResultLabel.AutoSize = true;
+            this.ResultLabel.Location = new System.Drawing.Point(335, 249);
+            this.ResultLabel.Name = "ResultLabel";
+            this.ResultLabel.Size = new System.Drawing.Size(33, 12);
+            this.ResultLabel.TabIndex = 5;
+            this.ResultLabel.Text = "label1";
+            // 
             // RPSForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(487, 358);
+            this.Controls.Add(this.ResultLabel);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.PaperButton);
@@ -95,6 +109,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -105,5 +120,6 @@
         private System.Windows.Forms.Button PaperButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label ResultLabel;
     }
 }

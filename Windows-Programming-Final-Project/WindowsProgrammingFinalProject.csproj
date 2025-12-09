@@ -64,6 +64,7 @@
       <DependentUpon>BlackjackForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Blackjack\Blackjack.cs" />
+    <Compile Include="GuessNumber\GuessNumber.cs" />
     <Compile Include="GuessNumber\GuessNumberForm.cs">
       <SubType>Form</SubType>
     </Compile>
