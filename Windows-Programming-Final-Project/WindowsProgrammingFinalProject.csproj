@@ -115,7 +115,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resource\" />
+    <Content Include="Resources\RPS\Paper.png" />
+    <Content Include="Resources\RPS\Rock.png" />
+    <Content Include="Resources\RPS\Scissor.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
