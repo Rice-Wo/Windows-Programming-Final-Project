@@ -36,6 +36,7 @@
             this.ResultLabel = new System.Windows.Forms.Label();
             this.PlayerNameLabel = new System.Windows.Forms.Label();
             this.ComNameLabel = new System.Windows.Forms.Label();
+            this.StatsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComImage)).BeginInit();
             this.SuspendLayout();
@@ -94,35 +95,51 @@
             // ResultLabel
             // 
             this.ResultLabel.AutoSize = true;
-            this.ResultLabel.Location = new System.Drawing.Point(361, 260);
+            this.ResultLabel.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ResultLabel.Location = new System.Drawing.Point(199, 242);
+            this.ResultLabel.MinimumSize = new System.Drawing.Size(100, 50);
             this.ResultLabel.Name = "ResultLabel";
-            this.ResultLabel.Size = new System.Drawing.Size(59, 12);
+            this.ResultLabel.Size = new System.Drawing.Size(100, 50);
             this.ResultLabel.TabIndex = 5;
-            this.ResultLabel.Text = "Placeholder";
+            this.ResultLabel.Text = "結果";
+            this.ResultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PlayerNameLabel
             // 
             this.PlayerNameLabel.AutoSize = true;
-            this.PlayerNameLabel.Location = new System.Drawing.Point(83, 9);
+            this.PlayerNameLabel.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.PlayerNameLabel.Location = new System.Drawing.Point(78, 6);
             this.PlayerNameLabel.Name = "PlayerNameLabel";
-            this.PlayerNameLabel.Size = new System.Drawing.Size(33, 12);
+            this.PlayerNameLabel.Size = new System.Drawing.Size(69, 34);
             this.PlayerNameLabel.TabIndex = 6;
-            this.PlayerNameLabel.Text = "label1";
+            this.PlayerNameLabel.Text = "玩家";
             // 
             // ComNameLabel
             // 
             this.ComNameLabel.AutoSize = true;
-            this.ComNameLabel.Location = new System.Drawing.Point(361, 9);
+            this.ComNameLabel.Font = new System.Drawing.Font("微軟正黑體", 20.25F);
+            this.ComNameLabel.Location = new System.Drawing.Point(338, 6);
             this.ComNameLabel.Name = "ComNameLabel";
-            this.ComNameLabel.Size = new System.Drawing.Size(33, 12);
+            this.ComNameLabel.Size = new System.Drawing.Size(69, 34);
             this.ComNameLabel.TabIndex = 7;
-            this.ComNameLabel.Text = "label1";
+            this.ComNameLabel.Text = "電腦";
+            // 
+            // StatsLabel
+            // 
+            this.StatsLabel.AutoSize = true;
+            this.StatsLabel.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.StatsLabel.Location = new System.Drawing.Point(358, 242);
+            this.StatsLabel.Name = "StatsLabel";
+            this.StatsLabel.Size = new System.Drawing.Size(97, 72);
+            this.StatsLabel.TabIndex = 8;
+            this.StatsLabel.Text = "勝場數：0\r\n敗場數：0\r\n平手數：0\r\n";
             // 
             // RPSForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(487, 358);
+            this.Controls.Add(this.StatsLabel);
             this.Controls.Add(this.ComNameLabel);
             this.Controls.Add(this.PlayerNameLabel);
             this.Controls.Add(this.ResultLabel);
@@ -132,7 +149,7 @@
             this.Controls.Add(this.ScissorButton);
             this.Controls.Add(this.RockButton);
             this.Name = "RPSForm";
-            this.Text = "Form1";
+            this.Text = "剪刀石頭布";
             ((System.ComponentModel.ISupportInitialize)(this.PlayerImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComImage)).EndInit();
             this.ResumeLayout(false);
@@ -150,5 +167,6 @@
         private System.Windows.Forms.Label ResultLabel;
         private System.Windows.Forms.Label PlayerNameLabel;
         private System.Windows.Forms.Label ComNameLabel;
+        private System.Windows.Forms.Label StatsLabel;
     }
 }

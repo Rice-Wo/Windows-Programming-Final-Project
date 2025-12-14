@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsProgrammingFinalProject.RockPaperScissor
@@ -23,6 +24,7 @@ namespace WindowsProgrammingFinalProject.RockPaperScissor
             string result = rps.Game("石頭", comInput);
             PlayerImage.Image = rockImage;
             ResultLabel.Text = result;
+            RefreshForm();
         }
 
         private void ScissorButton_Click(object sender, EventArgs e)
@@ -32,6 +34,7 @@ namespace WindowsProgrammingFinalProject.RockPaperScissor
             string result = rps.Game("剪刀", comInput);
             PlayerImage.Image = scissorImage;
             ResultLabel.Text = result;
+            RefreshForm();
         }
 
         private void PaperButton_Click(object sender, EventArgs e)
@@ -41,6 +44,23 @@ namespace WindowsProgrammingFinalProject.RockPaperScissor
             string result = rps.Game("布", comInput);
             PlayerImage.Image = paperImage;
             ResultLabel.Text = result;
+            RefreshForm();
+        }
+
+        private async void RefreshForm()
+        {
+            StatsLabel.Text = rps.Statistics();
+            RockButton.Enabled = false;
+            ScissorButton.Enabled = false;
+            PaperButton.Enabled = false;
+            StatsLabel.Focus();
+            await Task.Delay(1000);
+
+            RockButton.Enabled = true;
+            ScissorButton.Enabled = true;
+            PaperButton.Enabled = true;
+            
+
         }
     }
 }

@@ -24,9 +24,9 @@ namespace WindowsProgrammingFinalProject.RockPaperScissor
 
             string resultMessage = result switch
             {
-                0 => $"電腦出{input[computer]}，平手",
-                1 => $"電腦出{input[computer]}，你輸了",
-                2 => $"電腦出{input[computer]}，你贏了",
+                0 => $"電腦出{input[computer]}\n，平手",
+                1 => $"電腦出{input[computer]}\n，你輸了",
+                2 => $"電腦出{input[computer]}\n，你贏了",
                 _ => $"輸入異常"
             };
             switch (result)
@@ -59,10 +59,10 @@ namespace WindowsProgrammingFinalProject.RockPaperScissor
         /// 回傳目前的勝負平統計
         /// </summary>
         /// <returns>一個陣列包含[勝場數, 敗場數, 平手數]</returns>
-        public int[] Statistics()
+        public string Statistics()
         {
             Console.WriteLine($"勝場數: {winCount}, 敗場數: {loseCount}, 平手數: {drawCount}");
-            return new int[] { winCount, loseCount, drawCount };
+            return $"勝場數:{winCount}\n敗場數:{loseCount}\n平手數:{drawCount}";
         }
     }
 }
