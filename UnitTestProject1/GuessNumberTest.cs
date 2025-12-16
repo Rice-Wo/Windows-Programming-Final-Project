@@ -8,11 +8,7 @@ namespace UnitTest
     public class UnitTest2
     {
 
-        /*
-         * 測試玩家出石頭時，電腦會隨機出石頭、剪刀或布
-         * { "石頭", "剪刀", "布" }
-         * 0, 1, 2
-         */
+        
         [TestMethod]
         public void CorrectAnser()
         {
