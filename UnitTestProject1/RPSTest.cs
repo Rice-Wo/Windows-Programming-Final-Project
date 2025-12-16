@@ -5,7 +5,7 @@ using WindowsProgrammingFinalProject.RockPaperScissor;
 namespace UnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class RPSTest
     {
         [TestMethod]
         /*
@@ -17,7 +17,7 @@ namespace UnitTest
         {
             RPS rps = new RPS();
             string result = rps.Game("石頭", 0);
-            Assert.IsTrue(result.Equals("電腦出石頭，平手"));
+            Assert.IsTrue(result.Equals("電腦出石頭\n，平手"));
         }
 
         [TestMethod]
@@ -25,7 +25,7 @@ namespace UnitTest
         {
             RPS rps = new RPS();
             string result = rps.Game("石頭", 1);
-            Assert.IsTrue(result.Equals("電腦出剪刀，你贏了"));
+            Assert.IsTrue(result.Equals("電腦出剪刀\n，你贏了"));
         }
 
         [TestMethod]
@@ -33,7 +33,7 @@ namespace UnitTest
         {
             RPS rps = new RPS();
             string result = rps.Game("石頭", 2);
-            Assert.IsTrue(result.Equals("電腦出布，你輸了"));
+            Assert.IsTrue(result.Equals("電腦出布\n，你輸了"));
         }
 
         [TestMethod]
@@ -41,7 +41,7 @@ namespace UnitTest
         {
             RPS rps = new RPS();
             string result = rps.Game("剪刀", 0);
-            Assert.IsTrue(result.Equals("電腦出石頭，你輸了"));
+            Assert.IsTrue(result.Equals("電腦出石頭\n，你輸了"));
         }
 
         [TestMethod]
@@ -49,7 +49,7 @@ namespace UnitTest
         {
             RPS rps = new RPS();
             string result = rps.Game("剪刀", 1);
-            Assert.IsTrue(result.Equals("電腦出剪刀，平手"));
+            Assert.IsTrue(result.Equals("電腦出剪刀\n，平手"));
         }
 
         [TestMethod]
@@ -57,7 +57,7 @@ namespace UnitTest
         {
             RPS rps = new RPS();
             string result = rps.Game("剪刀", 2);
-            Assert.IsTrue(result.Equals("電腦出布，你贏了"));
+            Assert.IsTrue(result.Equals("電腦出布\n，你贏了"));
         }
 
         [TestMethod]
@@ -65,7 +65,7 @@ namespace UnitTest
         {
             RPS rps = new RPS();
             string result = rps.Game("布", 0);
-            Assert.IsTrue(result.Equals("電腦出石頭，你贏了"));
+            Assert.IsTrue(result.Equals("電腦出石頭\n，你贏了"));
         }
 
         [TestMethod]
@@ -73,7 +73,7 @@ namespace UnitTest
         {
             RPS rps = new RPS();
             string result = rps.Game("布", 1);
-            Assert.IsTrue(result.Equals("電腦出剪刀，你輸了"));
+            Assert.IsTrue(result.Equals("電腦出剪刀\n，你輸了"));
         }
 
         [TestMethod]
@@ -81,7 +81,7 @@ namespace UnitTest
         {
             RPS rps = new RPS();
             string result = rps.Game("布", 2);
-            Assert.IsTrue(result.Equals("電腦出布，平手"));
+            Assert.IsTrue(result.Equals("電腦出布\n，平手"));
         }
 
         [TestMethod]
