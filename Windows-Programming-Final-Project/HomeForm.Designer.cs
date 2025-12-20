@@ -34,7 +34,7 @@
             // 
             // RPSGameButton
             // 
-            this.RPSGameButton.Location = new System.Drawing.Point(372, 143);
+            this.RPSGameButton.Location = new System.Drawing.Point(66, 110);
             this.RPSGameButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.RPSGameButton.Name = "RPSGameButton";
             this.RPSGameButton.Size = new System.Drawing.Size(88, 31);
@@ -45,7 +45,7 @@
             // 
             // GuessNumberGameButton
             // 
-            this.GuessNumberGameButton.Location = new System.Drawing.Point(350, 237);
+            this.GuessNumberGameButton.Location = new System.Drawing.Point(66, 192);
             this.GuessNumberGameButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GuessNumberGameButton.Name = "GuessNumberGameButton";
             this.GuessNumberGameButton.Size = new System.Drawing.Size(88, 31);
@@ -58,7 +58,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(776, 505);
+            this.ClientSize = new System.Drawing.Size(278, 282);
             this.Controls.Add(this.GuessNumberGameButton);
             this.Controls.Add(this.RPSGameButton);
             this.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));

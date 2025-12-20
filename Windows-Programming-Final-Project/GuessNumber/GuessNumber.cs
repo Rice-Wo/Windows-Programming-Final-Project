@@ -8,7 +8,6 @@ namespace WindowsProgrammingFinalProject.GuessNumber
 
     public class GuessNumber
     {
-        int anser;
         int guessCount = 0;
         public string GetAnser()
         {
