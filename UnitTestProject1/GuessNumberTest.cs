@@ -26,7 +26,17 @@ namespace UnitTest
             int anser = 1234; // 假設答案是1234
             string result = game.MakeGuess(1111, anser);
 
-            Assert.IsTrue(result.Equals("1A0B"));
+            Assert.IsTrue(result.Equals("1111\t1A0B"));
+        }
+
+        [TestMethod]
+        public void twoAoneB()
+        {
+            GuessNumber game = new GuessNumber();
+            int anser = 1234; // 假設答案是1234
+            string result = game.MakeGuess(1245, anser);
+            Assert.IsTrue(result.Equals("1245\t2A1B"));
+
         }
     }
 }

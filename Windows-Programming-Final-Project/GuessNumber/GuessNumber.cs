@@ -47,7 +47,7 @@ namespace WindowsProgrammingFinalProject.GuessNumber
                     }
 
                 }
-                return $"{A}A{B}B";
+                return $"{userGuess}\t{A}A{B}B";
             }
 
         }
