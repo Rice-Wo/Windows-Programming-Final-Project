@@ -19,5 +19,13 @@ namespace WindowsProgrammingFinalProject
             RPSForm.ShowDialog();
             this.Show();
         }
+
+        private void GuessNumberGameButton_Click(object sender, EventArgs e)
+        {
+            GuessNumberForm guessNumber = new GuessNumberForm();
+            this.Hide();
+            guessNumber.ShowDialog();
+            this.Show();
+        }
     }
 }

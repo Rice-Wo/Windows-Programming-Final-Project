@@ -50,8 +50,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="BlackjackTest.cs" />
+    <Compile Include="RPSTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GuessNumberTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -29,24 +29,40 @@
         private void InitializeComponent()
         {
             this.RPSGameButton = new System.Windows.Forms.Button();
+            this.GuessNumberGameButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // RPSGameButton
             // 
-            this.RPSGameButton.Location = new System.Drawing.Point(319, 107);
-            this.RPSGameButton.Name = "button1";
-            this.RPSGameButton.Size = new System.Drawing.Size(75, 23);
+            this.RPSGameButton.Location = new System.Drawing.Point(66, 110);
+            this.RPSGameButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RPSGameButton.Name = "RPSGameButton";
+            this.RPSGameButton.Size = new System.Drawing.Size(88, 31);
             this.RPSGameButton.TabIndex = 0;
-            this.RPSGameButton.Text = "button1";
+            this.RPSGameButton.Text = "剪刀石頭布";
             this.RPSGameButton.UseVisualStyleBackColor = true;
             this.RPSGameButton.Click += new System.EventHandler(this.RPSGameButton_ClickEvent);
             // 
+            // GuessNumberGameButton
+            // 
+            this.GuessNumberGameButton.Location = new System.Drawing.Point(66, 192);
+            this.GuessNumberGameButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GuessNumberGameButton.Name = "GuessNumberGameButton";
+            this.GuessNumberGameButton.Size = new System.Drawing.Size(88, 31);
+            this.GuessNumberGameButton.TabIndex = 1;
+            this.GuessNumberGameButton.Text = "猜數字";
+            this.GuessNumberGameButton.UseVisualStyleBackColor = true;
+            this.GuessNumberGameButton.Click += new System.EventHandler(this.GuessNumberGameButton_Click);
+            // 
             // HomeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 379);
+            this.ClientSize = new System.Drawing.Size(278, 282);
+            this.Controls.Add(this.GuessNumberGameButton);
             this.Controls.Add(this.RPSGameButton);
+            this.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "HomeForm";
             this.Text = "Final-Project";
             this.ResumeLayout(false);
@@ -56,6 +72,7 @@
         #endregion
 
         private System.Windows.Forms.Button RPSGameButton;
+        private System.Windows.Forms.Button GuessNumberGameButton;
     }
 }
 
