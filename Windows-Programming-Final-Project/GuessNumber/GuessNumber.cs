@@ -32,20 +32,35 @@ namespace WindowsProgrammingFinalProject.GuessNumber
                 int A = 0; // 數字和位置都正確的數量
                 int B = 0; // 數字正確但位置錯誤的數量
 
-                for (int i = 0; i < strUserGuess.Length; i++)
-                {
-                    char ch = strUserGuess[i];
+                bool[] answerUsed = new bool[4]; // 記錄答案中哪些位置已被 A 佔用
+                bool[] guessUsed = new bool[4];  // 記錄猜測中哪些位置已被 A 佔用
 
+                // 第一遍：只算 A
+                for (int i = 0; i < 4; i++)
+                {
                     if (strUserGuess[i] == strAnser[i])
                     {
-                        usedDigits.Add(ch);
-                        A++; // 數字和位置都正確
+                        A++;
+                        answerUsed[i] = true;
+                        guessUsed[i] = true;
                     }
-                    else if (strAnser.Contains(strUserGuess[i]) && usedDigits.Add(ch))
-                    {
-                        B++; // 數字正確但位置錯誤
-                    }
+                }
 
+                // 第二遍：算 B（排除掉已經是 A 的位置）
+                for (int i = 0; i < 4; i++)
+                {
+                    if (guessUsed[i]) continue; // 如果這個位置已經是 A，跳過
+
+                    for (int j = 0; j < 4; j++)
+                    {
+                        // 如果答案的這個位置還沒被用過，且數字相同
+                        if (!answerUsed[j] && strUserGuess[i] == strAnser[j])
+                        {
+                            B++;
+                            answerUsed[j] = true; // 標記這個答案數字已被配對
+                            break;
+                        }
+                    }
                 }
                 return $"{userGuess}\t{A}A{B}B";
             }

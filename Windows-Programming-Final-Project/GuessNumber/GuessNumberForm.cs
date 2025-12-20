@@ -1,49 +1,67 @@
 ﻿using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace WindowsProgrammingFinalProject.GuessNumber
 {
     public partial class GuessNumberForm : Form
     {
+        GuessNumber game;
+        int anser;
         private Button SubmitButton;
         private TextBox AnserTextBox;
+        private ToolTip toolTip1;
+        private System.ComponentModel.IContainer components;
         private RichTextBox ResultRichTextBox;
 
         public GuessNumberForm()
         {
             InitializeComponent();
+            game = new GuessNumber();
+            anser = game.GetAnser();
         }
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.SubmitButton = new System.Windows.Forms.Button();
             this.AnserTextBox = new System.Windows.Forms.TextBox();
             this.ResultRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
-            // button1
+            // SubmitButton
             // 
             this.SubmitButton.Location = new System.Drawing.Point(150, 421);
-            this.SubmitButton.Name = "button1";
+            this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(75, 23);
             this.SubmitButton.TabIndex = 0;
-            this.SubmitButton.Text = "button1";
+            this.SubmitButton.Text = "輸入答案";
             this.SubmitButton.UseVisualStyleBackColor = true;
+            this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
-            // textBox1
+            // AnserTextBox
             // 
+            this.AnserTextBox.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.AnserTextBox.Location = new System.Drawing.Point(140, 377);
-            this.AnserTextBox.Name = "textBox1";
-            this.AnserTextBox.Size = new System.Drawing.Size(100, 22);
+            this.AnserTextBox.MaxLength = 4;
+            this.AnserTextBox.Name = "AnserTextBox";
+            this.AnserTextBox.Size = new System.Drawing.Size(100, 23);
             this.AnserTextBox.TabIndex = 1;
+            this.AnserTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AnserTextBox_KeyDown_Enter);
             // 
-            // richTextBox1
+            // ResultRichTextBox
             // 
             this.ResultRichTextBox.Location = new System.Drawing.Point(12, 12);
-            this.ResultRichTextBox.Name = "richTextBox1";
+            this.ResultRichTextBox.Name = "ResultRichTextBox";
             this.ResultRichTextBox.ReadOnly = true;
             this.ResultRichTextBox.Size = new System.Drawing.Size(357, 349);
             this.ResultRichTextBox.TabIndex = 2;
             this.ResultRichTextBox.Text = "";
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.IsBalloon = true;
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
             // 
             // GuessNumberForm
             // 
@@ -51,11 +69,61 @@ namespace WindowsProgrammingFinalProject.GuessNumber
             this.Controls.Add(this.ResultRichTextBox);
             this.Controls.Add(this.AnserTextBox);
             this.Controls.Add(this.SubmitButton);
+            this.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Name = "GuessNumberForm";
             this.Text = "猜數字";
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
+
+        // 以上為設計工具自動產生的程式碼
+        
+        private void SubmitAnser()
+        {
+            int userGuess = -1;
+            try
+            {
+                userGuess = int.Parse(AnserTextBox.Text);
+            }
+            catch (System.Exception)
+            {
+
+                toolTip1.Show("請輸入四位數字", AnserTextBox, 500);
+                return;
+            }
+            string result = game.MakeGuess(userGuess, anser);
+            ResultRichTextBox.AppendText(result + "\n");
+        }
+
+        private void AnserTextBox_KeyDown_Enter(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // 在這裡處理按下 Enter 鍵的邏輯
+                if (AnserTextBox.Text.Length == 4)
+                {
+                    SubmitAnser();
+                    e.SuppressKeyPress = true; // 防止系統發出「嗶」聲
+                }
+                    
+                
+            }
+        }
+
+        private void SubmitButton_Click(object sender, System.EventArgs e)
+        {
+            if (AnserTextBox.Text.Length == 4)
+            {
+                SubmitAnser();
+            }
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
     }
+
+    
 }
