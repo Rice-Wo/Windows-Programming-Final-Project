@@ -5,7 +5,7 @@ using WindowsProgrammingFinalProject.GuessNumber;
 namespace UnitTest
 {
     [TestClass]
-    public class UnitTest2
+    public class GuessNumberTest
     {
 
         
