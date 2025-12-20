@@ -68,7 +68,6 @@
     <Compile Include="GuessNumber\GuessNumberForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GuessNumber\GuessNumberForm.Designer.cs" />
     <Compile Include="HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
