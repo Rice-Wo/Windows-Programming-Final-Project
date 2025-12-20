@@ -10,13 +10,13 @@ namespace WindowsProgrammingFinalProject.GuessNumber
     {
         int anser;
         int guessCount = 0;
-        public int GetAnser()
+        public string GetAnser()
         {
             Random rand = new Random();
-            return rand.Next(1001, 10000);
+            return rand.Next(0, 10000).ToString("D4");
         }
 
-        public string MakeGuess(int userGuess, int anser)
+        public string MakeGuess(string userGuess, string anser)
         {
             guessCount++;
             if (userGuess == anser)
@@ -27,7 +27,6 @@ namespace WindowsProgrammingFinalProject.GuessNumber
             {
                 string strAnser = anser.ToString();
                 string strUserGuess = userGuess.ToString();
-                HashSet<char> usedDigits = new HashSet<char>();
 
                 int A = 0; // 數字和位置都正確的數量
                 int B = 0; // 數字正確但位置錯誤的數量

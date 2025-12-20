@@ -1,16 +1,16 @@
 ﻿using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace WindowsProgrammingFinalProject.GuessNumber
 {
     public partial class GuessNumberForm : Form
     {
         GuessNumber game;
-        int anser;
+        string anser;
         private Button SubmitButton;
         private TextBox AnserTextBox;
         private ToolTip toolTip1;
         private System.ComponentModel.IContainer components;
+        private Label RuleLabel;
         private RichTextBox ResultRichTextBox;
 
         public GuessNumberForm()
@@ -27,11 +27,12 @@ namespace WindowsProgrammingFinalProject.GuessNumber
             this.AnserTextBox = new System.Windows.Forms.TextBox();
             this.ResultRichTextBox = new System.Windows.Forms.RichTextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.RuleLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SubmitButton
             // 
-            this.SubmitButton.Location = new System.Drawing.Point(150, 421);
+            this.SubmitButton.Location = new System.Drawing.Point(50, 412);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(75, 23);
             this.SubmitButton.TabIndex = 0;
@@ -42,7 +43,7 @@ namespace WindowsProgrammingFinalProject.GuessNumber
             // AnserTextBox
             // 
             this.AnserTextBox.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.AnserTextBox.Location = new System.Drawing.Point(140, 377);
+            this.AnserTextBox.Location = new System.Drawing.Point(38, 367);
             this.AnserTextBox.MaxLength = 4;
             this.AnserTextBox.Name = "AnserTextBox";
             this.AnserTextBox.Size = new System.Drawing.Size(100, 23);
@@ -54,18 +55,28 @@ namespace WindowsProgrammingFinalProject.GuessNumber
             this.ResultRichTextBox.Location = new System.Drawing.Point(12, 12);
             this.ResultRichTextBox.Name = "ResultRichTextBox";
             this.ResultRichTextBox.ReadOnly = true;
-            this.ResultRichTextBox.Size = new System.Drawing.Size(357, 349);
+            this.ResultRichTextBox.Size = new System.Drawing.Size(156, 349);
             this.ResultRichTextBox.TabIndex = 2;
             this.ResultRichTextBox.Text = "";
             // 
             // toolTip1
             // 
             this.toolTip1.IsBalloon = true;
-            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            // 
+            // RuleLabel
+            // 
+            this.RuleLabel.AutoSize = true;
+            this.RuleLabel.Location = new System.Drawing.Point(214, 27);
+            this.RuleLabel.Name = "RuleLabel";
+            this.RuleLabel.Size = new System.Drawing.Size(171, 208);
+            this.RuleLabel.TabIndex = 3;
+            this.RuleLabel.Text = "【 遊戲規則 】\n\n系統產生一組 4 位數字。\n\n請在下方輸入數字後按 Enter。\n\n判定標準：\n\nA：數字正確，且位置正確。\n\nB：數字正確，但位置不對。\n" +
+    "\n猜中 4A 即獲勝。";
             // 
             // GuessNumberForm
             // 
             this.ClientSize = new System.Drawing.Size(398, 474);
+            this.Controls.Add(this.RuleLabel);
             this.Controls.Add(this.ResultRichTextBox);
             this.Controls.Add(this.AnserTextBox);
             this.Controls.Add(this.SubmitButton);
@@ -78,22 +89,24 @@ namespace WindowsProgrammingFinalProject.GuessNumber
         }
 
         // 以上為設計工具自動產生的程式碼
-        
+
         private void SubmitAnser()
         {
-            int userGuess = -1;
+            string userGuess = AnserTextBox.Text;
             try
             {
-                userGuess = int.Parse(AnserTextBox.Text);
+                int.Parse(AnserTextBox.Text);
             }
             catch (System.Exception)
             {
 
                 toolTip1.Show("請輸入四位數字", AnserTextBox, 500);
+                AnserTextBox.Clear();
                 return;
             }
             string result = game.MakeGuess(userGuess, anser);
             ResultRichTextBox.AppendText(result + "\n");
+            AnserTextBox.Clear();
         }
 
         private void AnserTextBox_KeyDown_Enter(object sender, KeyEventArgs e)
@@ -106,8 +119,14 @@ namespace WindowsProgrammingFinalProject.GuessNumber
                     SubmitAnser();
                     e.SuppressKeyPress = true; // 防止系統發出「嗶」聲
                 }
-                    
-                
+                else
+                {
+                    toolTip1.Show("請輸入四位數字", AnserTextBox, 500);
+                    AnserTextBox.Clear();
+                    AnserTextBox.Focus();
+                }
+
+
             }
         }
 
@@ -117,13 +136,15 @@ namespace WindowsProgrammingFinalProject.GuessNumber
             {
                 SubmitAnser();
             }
+            else
+            {
+                toolTip1.Show("請輸入四位數字", AnserTextBox, 500);
+                AnserTextBox.Clear();
+                AnserTextBox.Focus();
+            }
         }
 
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
-        {
-
-        }
     }
 
-    
+
 }
