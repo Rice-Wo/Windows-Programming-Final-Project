@@ -98,19 +98,18 @@ namespace WindowsProgrammingFinalProject.Blackjack
             PlayerPoint = CalculatePoints(PlayerHand);
         }
 
-        public void GameEnd(bool hard = false)
+        public void GameEnd()
         {
             ComPoint = CalculatePoints(ComputerHand);
 
-            if (!hard)
-            {
+            
                 // 莊家低於 17 分強制補牌
-                while (ComPoint < 17)
-                {
-                    ComputerHand.Add(GetCard(Deck));
-                    ComPoint = CalculatePoints(ComputerHand);
-                }
+            while (ComPoint < 17)
+            {
+                ComputerHand.Add(GetCard(Deck));
+                ComPoint = CalculatePoints(ComputerHand);
             }
+            
             PlayerPoint = CalculatePoints(PlayerHand);
         }
     }
