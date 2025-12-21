@@ -38,13 +38,13 @@ namespace WindowsProgrammingFinalProject.RockPaperScissor
             PlayerImage.Image = null;
             ComImage.Image = null;
             ResultLabel.Text = ""; // 增加期待感
-    
+
             RockButton.Enabled = false;
             ScissorButton.Enabled = false;
             PaperButton.Enabled = false;
 
             // 2. 等待時間 (增加手感，建議 300~500ms 即可，1秒可能有點久)
-            await Task.Delay(500); 
+            await Task.Delay(500);
 
             // 3. 顯示結果
             PlayerImage.Image = playerChoiceImage;
