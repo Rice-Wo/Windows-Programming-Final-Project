@@ -9,7 +9,7 @@ namespace WindowsProgrammingFinalProject.GuessNumber
     public class GuessNumber
     {
         int guessCount = 0;
-        public string GetAnser()
+        public string GetAnswer()
         {
             Random rand = new Random();
             return rand.Next(0, 10000).ToString("D4");
@@ -20,7 +20,7 @@ namespace WindowsProgrammingFinalProject.GuessNumber
             guessCount++;
             if (userGuess == anser)
             {
-                return $"恭喜，答案{anser}正確！你總共猜了 {guessCount} 次。";
+                return $"恭喜，答案{anser}正確！\n你總共猜了 {guessCount} 次。";
             }
             else
             {

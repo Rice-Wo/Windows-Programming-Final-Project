@@ -4,6 +4,10 @@ using System.Linq;
 
 namespace WindowsProgrammingFinalProject.Blackjack
 {
+    /* Blackjack 遊戲邏輯類別
+     * 包含生成牌組、洗牌、發牌、計算分數等功能
+     * 這東西是用我之前寫的 Python 用AI改寫成 C#
+     */
     public class Blackjack
     {
         public List<string> PlayerHand { get; private set; }
@@ -89,6 +93,7 @@ namespace WindowsProgrammingFinalProject.Blackjack
         {
             GenerateRandomDeck();
             PlayerHand = new List<string> { GetCard(Deck), GetCard(Deck) };
+            PlayerPoint = CalculatePoints(PlayerHand);
             ComputerHand = new List<string> { GetCard(Deck), GetCard(Deck) };
         }
 
@@ -98,20 +103,33 @@ namespace WindowsProgrammingFinalProject.Blackjack
             PlayerPoint = CalculatePoints(PlayerHand);
         }
 
-        public void GameEnd(bool hard = false)
+        public void GameEnd()
         {
             ComPoint = CalculatePoints(ComputerHand);
 
-            if (!hard)
-            {
+            
                 // 莊家低於 17 分強制補牌
-                while (ComPoint < 17)
-                {
-                    ComputerHand.Add(GetCard(Deck));
-                    ComPoint = CalculatePoints(ComputerHand);
-                }
+            while (ComPoint < 17)
+            {
+                ComputerHand.Add(GetCard(Deck));
+                ComPoint = CalculatePoints(ComputerHand);
             }
+            
             PlayerPoint = CalculatePoints(PlayerHand);
+        }
+
+        public string GetResult()
+        {
+            if (PlayerPoint > 21)
+                return "你爆了！莊家獲勝！";
+            else if (ComPoint > 21)
+                return "莊家爆了！你獲勝！";
+            else if (PlayerPoint > ComPoint)
+                return "你獲勝了！";
+            else if (PlayerPoint < ComPoint)
+                return "莊家獲勝！";
+            else
+                return "平手！";
         }
     }
 }

@@ -16,5 +16,63 @@ namespace WindowsProgrammingFinalProject.Blackjack
         {
             InitializeComponent();
         }
+
+        Blackjack game = new Blackjack();
+
+        private void GameStart(object sender, EventArgs e)
+        {
+            // 初始化遊戲
+            game = new Blackjack();
+            game.GameStart();
+            UpdateUI();
+            DealerDeckDisplay.Text = game.ComputerHand[0] + ", ??";
+            DealerPointsLbl.Text = "莊家點數: ?";
+            HitButton.Enabled = true;
+            StandButton.Enabled = true;
+            NextRoundButton.Enabled = false;
+        }
+
+        private void UpdateUI()
+        {
+            // 更新玩家手牌顯示
+            PlayerDeckDisplay.Text = string.Join(", ", game.PlayerHand);
+            PlayerPointLbl.Text = $"玩家點數: {game.PlayerPoint}";
+        }
+
+        private void BlackjackForm_Load(object sender, EventArgs e)
+        {
+            GameStart(sender, e);
+        }
+
+        private void HitButton_Click(object sender, EventArgs e)
+        {
+            game.GameAddCard();
+            UpdateUI();
+            if (game.PlayerPoint > 21)
+            {
+                HitButton.Enabled = false;
+                StandButton.Enabled = false;
+                GameResultLbl.Text = "你爆了！莊家獲勝！";
+                NextRoundButton.Enabled = true;
+            }
+        }
+
+       
+
+        private void StandButton_Click(object sender, EventArgs e)
+        {
+            HitButton.Enabled = false;
+            StandButton.Enabled = false;
+            game.GameEnd();
+            DealerDeckDisplay.Text = string.Join(", ", game.ComputerHand);
+            DealerPointsLbl.Text = $"莊家點數: {game.CalculatePoints(game.ComputerHand)}";
+            GameResultLbl.Text = game.GetResult();
+            NextRoundButton.Enabled = true;
+        }
+
+        private void NextRoundButton_Click(object sender, EventArgs e)
+        {
+            GameStart(sender, e);
+        }
     }
 }
