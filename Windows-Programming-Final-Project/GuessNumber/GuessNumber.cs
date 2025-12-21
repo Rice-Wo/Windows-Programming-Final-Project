@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace WindowsProgrammingFinalProject.GuessNumber
 {
@@ -9,8 +7,11 @@ namespace WindowsProgrammingFinalProject.GuessNumber
     public class GuessNumber
     {
         int guessCount = 0;
+        int playTimes = 0;
+        int totalGuessCount = 0;
         public string GetAnswer()
         {
+            guessCount = 0;
             Random rand = new Random();
             return rand.Next(0, 10000).ToString("D4");
         }
@@ -63,6 +64,15 @@ namespace WindowsProgrammingFinalProject.GuessNumber
                 return $"{userGuess}\t{A}A{B}B";
             }
 
+        }
+
+        public string GetStats()
+        {
+            playTimes++;
+            totalGuessCount += guessCount;
+            Console.WriteLine($"playTimes: {playTimes}, totalGuessCount: {totalGuessCount}");
+            double average = (double)totalGuessCount / playTimes;
+            return $"平均猜了{average} 次才猜中。";
         }
     }
 }

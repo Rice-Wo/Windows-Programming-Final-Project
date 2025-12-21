@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsProgrammingFinalProject.Blackjack
@@ -22,7 +15,6 @@ namespace WindowsProgrammingFinalProject.Blackjack
         private void GameStart(object sender, EventArgs e)
         {
             // 初始化遊戲
-            game = new Blackjack();
             game.GameStart();
             UpdateUI();
             DealerDeckDisplay.Text = game.ComputerHand[0] + ", ??";
@@ -52,12 +44,13 @@ namespace WindowsProgrammingFinalProject.Blackjack
             {
                 HitButton.Enabled = false;
                 StandButton.Enabled = false;
-                GameResultLbl.Text = "你爆了！莊家獲勝！";
+                GameResultLbl.Text = game.GetResult();
                 NextRoundButton.Enabled = true;
+                StatsLbl.Text = game.Statistics();
             }
         }
 
-       
+
 
         private void StandButton_Click(object sender, EventArgs e)
         {
@@ -68,6 +61,7 @@ namespace WindowsProgrammingFinalProject.Blackjack
             DealerPointsLbl.Text = $"莊家點數: {game.CalculatePoints(game.ComputerHand)}";
             GameResultLbl.Text = game.GetResult();
             NextRoundButton.Enabled = true;
+            StatsLbl.Text = game.Statistics();
         }
 
         private void NextRoundButton_Click(object sender, EventArgs e)

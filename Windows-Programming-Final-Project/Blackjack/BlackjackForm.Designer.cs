@@ -38,6 +38,7 @@
             this.DealerLabel = new System.Windows.Forms.Label();
             this.NextRoundButton = new System.Windows.Forms.Button();
             this.GameResultLbl = new System.Windows.Forms.Label();
+            this.StatsLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // StandButton
@@ -140,11 +141,21 @@
             this.GameResultLbl.Size = new System.Drawing.Size(0, 34);
             this.GameResultLbl.TabIndex = 9;
             // 
+            // StatsLbl
+            // 
+            this.StatsLbl.AutoSize = true;
+            this.StatsLbl.Location = new System.Drawing.Point(490, 115);
+            this.StatsLbl.Name = "StatsLbl";
+            this.StatsLbl.Size = new System.Drawing.Size(55, 48);
+            this.StatsLbl.TabIndex = 10;
+            this.StatsLbl.Text = "勝場數：\r\n敗場數：\r\n平手數：\r\n";
+            // 
             // BlackjackForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 493);
+            this.Controls.Add(this.StatsLbl);
             this.Controls.Add(this.GameResultLbl);
             this.Controls.Add(this.NextRoundButton);
             this.Controls.Add(this.DealerLabel);
@@ -180,5 +191,6 @@
         private System.Windows.Forms.Label DealerLabel;
         private System.Windows.Forms.Button NextRoundButton;
         private System.Windows.Forms.Label GameResultLbl;
+        private System.Windows.Forms.Label StatsLbl;
     }
 }

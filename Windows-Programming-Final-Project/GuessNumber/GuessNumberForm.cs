@@ -11,6 +11,7 @@ namespace WindowsProgrammingFinalProject.GuessNumber
         private System.ComponentModel.IContainer components;
         private Label RuleLabel;
         private Button NextRoundButton;
+        private Label StatsLbl;
         private RichTextBox ResultRichTextBox;
 
         public GuessNumberForm()
@@ -28,6 +29,7 @@ namespace WindowsProgrammingFinalProject.GuessNumber
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.RuleLabel = new System.Windows.Forms.Label();
             this.NextRoundButton = new System.Windows.Forms.Button();
+            this.StatsLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SubmitButton
@@ -76,7 +78,7 @@ namespace WindowsProgrammingFinalProject.GuessNumber
             // NextRoundButton
             // 
             this.NextRoundButton.Enabled = false;
-            this.NextRoundButton.Location = new System.Drawing.Point(257, 303);
+            this.NextRoundButton.Location = new System.Drawing.Point(266, 367);
             this.NextRoundButton.Name = "NextRoundButton";
             this.NextRoundButton.Size = new System.Drawing.Size(75, 23);
             this.NextRoundButton.TabIndex = 4;
@@ -84,9 +86,19 @@ namespace WindowsProgrammingFinalProject.GuessNumber
             this.NextRoundButton.UseVisualStyleBackColor = true;
             this.NextRoundButton.Click += new System.EventHandler(this.NextRoundButton_Click);
             // 
+            // StatsLbl
+            // 
+            this.StatsLbl.AutoSize = true;
+            this.StatsLbl.Location = new System.Drawing.Point(214, 298);
+            this.StatsLbl.Name = "StatsLbl";
+            this.StatsLbl.Size = new System.Drawing.Size(116, 16);
+            this.StatsLbl.TabIndex = 5;
+            this.StatsLbl.Text = "平均猜了 0 次才猜中";
+            // 
             // GuessNumberForm
             // 
             this.ClientSize = new System.Drawing.Size(398, 474);
+            this.Controls.Add(this.StatsLbl);
             this.Controls.Add(this.NextRoundButton);
             this.Controls.Add(this.RuleLabel);
             this.Controls.Add(this.ResultRichTextBox);
@@ -129,6 +141,7 @@ namespace WindowsProgrammingFinalProject.GuessNumber
                 isGameOver = true;
                 SubmitButton.Enabled = false;
                 NextRoundButton.Enabled = true;
+                StatsLbl.Text = game.GetStats();
             }
             ResultRichTextBox.ScrollToCaret();
             AnserTextBox.Clear();

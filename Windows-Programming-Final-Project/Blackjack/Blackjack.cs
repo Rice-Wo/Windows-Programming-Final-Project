@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace WindowsProgrammingFinalProject.Blackjack
 {
@@ -15,6 +14,9 @@ namespace WindowsProgrammingFinalProject.Blackjack
         public List<string> Deck { get; private set; }
         public int PlayerPoint { get; private set; }
         public int ComPoint { get; private set; }
+        public int WinCount { get; private set; }
+        public int LossCount { get; private set; }
+        public int DrawCount { get; private set; }
 
         private Random rand = new Random();
 
@@ -107,29 +109,50 @@ namespace WindowsProgrammingFinalProject.Blackjack
         {
             ComPoint = CalculatePoints(ComputerHand);
 
-            
-                // 莊家低於 17 分強制補牌
+
+            // 莊家低於 17 分強制補牌
             while (ComPoint < 17)
             {
                 ComputerHand.Add(GetCard(Deck));
                 ComPoint = CalculatePoints(ComputerHand);
             }
-            
+
             PlayerPoint = CalculatePoints(PlayerHand);
         }
 
         public string GetResult()
         {
             if (PlayerPoint > 21)
+            {
+                LossCount++;
                 return "你爆了！莊家獲勝！";
+            }
+
             else if (ComPoint > 21)
+            {
+                WinCount++;
                 return "莊家爆了！你獲勝！";
+            }
             else if (PlayerPoint > ComPoint)
+            {
+                WinCount++;
                 return "你獲勝了！";
+            }
             else if (PlayerPoint < ComPoint)
+            {
+                LossCount++;
                 return "莊家獲勝！";
+            }
             else
+            {
+                DrawCount++;
                 return "平手！";
+            }
+        }
+
+        public string Statistics()
+        {
+            return $"勝場數：{WinCount}\n敗場數：{LossCount}\n平手數：{DrawCount}\n";
         }
     }
 }
