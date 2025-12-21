@@ -89,6 +89,7 @@ namespace WindowsProgrammingFinalProject.Blackjack
         {
             GenerateRandomDeck();
             PlayerHand = new List<string> { GetCard(Deck), GetCard(Deck) };
+            PlayerPoint = CalculatePoints(PlayerHand);
             ComputerHand = new List<string> { GetCard(Deck), GetCard(Deck) };
         }
 

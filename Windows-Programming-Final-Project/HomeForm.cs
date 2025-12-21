@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using WindowsProgrammingFinalProject.Blackjack;
 using WindowsProgrammingFinalProject.GuessNumber;
 using WindowsProgrammingFinalProject.RockPaperScissor;
 
@@ -25,6 +26,14 @@ namespace WindowsProgrammingFinalProject
             GuessNumberForm guessNumber = new GuessNumberForm();
             this.Hide();
             guessNumber.ShowDialog();
+            this.Show();
+        }
+
+        private void BlkjkGameButton_Click(object sender, EventArgs e)
+        {
+            BlackjackForm blackjackForm = new BlackjackForm();
+            this.Hide();
+            blackjackForm.ShowDialog();
             this.Show();
         }
     }

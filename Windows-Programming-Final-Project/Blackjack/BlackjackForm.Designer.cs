@@ -41,7 +41,7 @@
             // StandButton
             // 
             this.StandButton.Location = new System.Drawing.Point(458, 276);
-            this.StandButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.StandButton.Margin = new System.Windows.Forms.Padding(4);
             this.StandButton.Name = "StandButton";
             this.StandButton.Size = new System.Drawing.Size(88, 31);
             this.StandButton.TabIndex = 0;
@@ -51,7 +51,7 @@
             // HitButton
             // 
             this.HitButton.Location = new System.Drawing.Point(458, 216);
-            this.HitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.HitButton.Margin = new System.Windows.Forms.Padding(4);
             this.HitButton.Name = "HitButton";
             this.HitButton.Size = new System.Drawing.Size(88, 31);
             this.HitButton.TabIndex = 1;
@@ -62,6 +62,7 @@
             // 
             this.PlayerDeckDisplay.Location = new System.Drawing.Point(182, 207);
             this.PlayerDeckDisplay.Name = "PlayerDeckDisplay";
+            this.PlayerDeckDisplay.ReadOnly = true;
             this.PlayerDeckDisplay.Size = new System.Drawing.Size(100, 96);
             this.PlayerDeckDisplay.TabIndex = 2;
             this.PlayerDeckDisplay.Text = "";
@@ -70,6 +71,7 @@
             // 
             this.DealerDeckDisplay.Location = new System.Drawing.Point(182, 49);
             this.DealerDeckDisplay.Name = "DealerDeckDisplay";
+            this.DealerDeckDisplay.ReadOnly = true;
             this.DealerDeckDisplay.Size = new System.Drawing.Size(100, 96);
             this.DealerDeckDisplay.TabIndex = 3;
             this.DealerDeckDisplay.Text = "";
@@ -128,9 +130,10 @@
             this.Controls.Add(this.HitButton);
             this.Controls.Add(this.StandButton);
             this.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BlackjackForm";
-            this.Text = "Form1";
+            this.Text = "二十一點";
+            this.Load += new System.EventHandler(this.BlackjackForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
