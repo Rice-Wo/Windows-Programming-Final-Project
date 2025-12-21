@@ -45,7 +45,7 @@ namespace WindowsProgrammingFinalProject.RockPaperScissor
             }
             ;
 
-            Console.WriteLine(resultMessage);
+            //Console.WriteLine(resultMessage);
             return resultMessage;
         }
 
@@ -61,7 +61,7 @@ namespace WindowsProgrammingFinalProject.RockPaperScissor
         /// <returns>一個陣列包含[勝場數, 敗場數, 平手數]</returns>
         public string Statistics()
         {
-            Console.WriteLine($"勝場數: {winCount}, 敗場數: {loseCount}, 平手數: {drawCount}");
+            //Console.WriteLine($"勝場數: {winCount}, 敗場數: {loseCount}, 平手數: {drawCount}");
             return $"勝場數:{winCount}\n敗場數:{loseCount}\n平手數:{drawCount}";
         }
     }
