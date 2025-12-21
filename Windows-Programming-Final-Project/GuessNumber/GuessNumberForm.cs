@@ -106,6 +106,7 @@ namespace WindowsProgrammingFinalProject.GuessNumber
             }
             string result = game.MakeGuess(userGuess, anser);
             ResultRichTextBox.AppendText(result + "\n");
+            ResultRichTextBox.ScrollToCaret();
             AnserTextBox.Clear();
         }
 
