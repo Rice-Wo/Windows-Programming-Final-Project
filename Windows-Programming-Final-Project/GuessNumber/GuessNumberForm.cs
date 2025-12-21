@@ -4,20 +4,19 @@ namespace WindowsProgrammingFinalProject.GuessNumber
 {
     public partial class GuessNumberForm : Form
     {
-        GuessNumber game;
-        string anser;
+
         private Button SubmitButton;
         private TextBox AnserTextBox;
         private ToolTip toolTip1;
         private System.ComponentModel.IContainer components;
         private Label RuleLabel;
+        private Button NextRoundButton;
         private RichTextBox ResultRichTextBox;
 
         public GuessNumberForm()
         {
             InitializeComponent();
-            game = new GuessNumber();
-            anser = game.GetAnser();
+            GameStart();
         }
 
         private void InitializeComponent()
@@ -28,6 +27,7 @@ namespace WindowsProgrammingFinalProject.GuessNumber
             this.ResultRichTextBox = new System.Windows.Forms.RichTextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.RuleLabel = new System.Windows.Forms.Label();
+            this.NextRoundButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SubmitButton
@@ -70,12 +70,24 @@ namespace WindowsProgrammingFinalProject.GuessNumber
             this.RuleLabel.Name = "RuleLabel";
             this.RuleLabel.Size = new System.Drawing.Size(171, 208);
             this.RuleLabel.TabIndex = 3;
-            this.RuleLabel.Text = "【 遊戲規則 】\n\n系統產生一組 4 位數字。\n\n請在下方輸入數字後按 Enter。\n\n判定標準：\n\nA：數字正確，且位置正確。\n\nB：數字正確，但位置不對。\n" +
-    "\n猜中 4A 即獲勝。";
+            this.RuleLabel.Text = "【 遊戲規則 】\n\n系統產生一組 4 位數字。\n\n請在下方輸入數字後按 Enter。\n\n判定標準：\n\nA：數字正確，且位置正確。\n\nB：數字正確，但位置不對。\n\n" +
+    "猜中 4A 即獲勝。";
+            // 
+            // NextRoundButton
+            // 
+            this.NextRoundButton.Enabled = false;
+            this.NextRoundButton.Location = new System.Drawing.Point(257, 303);
+            this.NextRoundButton.Name = "NextRoundButton";
+            this.NextRoundButton.Size = new System.Drawing.Size(75, 23);
+            this.NextRoundButton.TabIndex = 4;
+            this.NextRoundButton.Text = "下一局";
+            this.NextRoundButton.UseVisualStyleBackColor = true;
+            this.NextRoundButton.Click += new System.EventHandler(this.NextRoundButton_Click);
             // 
             // GuessNumberForm
             // 
             this.ClientSize = new System.Drawing.Size(398, 474);
+            this.Controls.Add(this.NextRoundButton);
             this.Controls.Add(this.RuleLabel);
             this.Controls.Add(this.ResultRichTextBox);
             this.Controls.Add(this.AnserTextBox);
@@ -89,6 +101,9 @@ namespace WindowsProgrammingFinalProject.GuessNumber
         }
 
         // 以上為設計工具自動產生的程式碼
+        bool isGameOver = false;
+        GuessNumber game = new GuessNumber();
+        string answer;
 
         private void SubmitAnser()
         {
@@ -104,8 +119,14 @@ namespace WindowsProgrammingFinalProject.GuessNumber
                 AnserTextBox.Clear();
                 return;
             }
-            string result = game.MakeGuess(userGuess, anser);
+            string result = game.MakeGuess(userGuess, answer);
             ResultRichTextBox.AppendText(result + "\n");
+            if (result.Contains("恭喜"))
+            {
+                isGameOver = true;
+                SubmitButton.Enabled = false;
+                NextRoundButton.Enabled = true;
+            }
             ResultRichTextBox.ScrollToCaret();
             AnserTextBox.Clear();
         }
@@ -114,26 +135,41 @@ namespace WindowsProgrammingFinalProject.GuessNumber
         {
             if (e.KeyCode == Keys.Enter)
             {
-                // 在這裡處理按下 Enter 鍵的邏輯
-                if (AnserTextBox.Text.Length == 4)
+                if (isGameOver)
                 {
-                    SubmitAnser();
-                    e.SuppressKeyPress = true; // 防止系統發出「嗶」聲
+                    GameStart();
                 }
                 else
                 {
-                    toolTip1.Show("請輸入四位數字", AnserTextBox, 500);
-                    AnserTextBox.Clear();
-                    AnserTextBox.Focus();
+                    string userGuess = AnserTextBox.Text;
+                    // 在這裡處理按下 Enter 鍵的邏輯
+                    if (userGuess == "ans?")
+                    {
+                        AnserTextBox.Text = answer;
+                    }
+                    else if (userGuess.Length == 4)
+                    {
+                        SubmitAnser();
+                        e.SuppressKeyPress = true; // 防止系統發出「嗶」聲
+                    }
+                    else
+                    {
+                        toolTip1.Show("請輸入四位數字", AnserTextBox, 500);
+                        AnserTextBox.Clear();
+                        AnserTextBox.Focus();
+                    }
                 }
-
-
             }
         }
 
         private void SubmitButton_Click(object sender, System.EventArgs e)
         {
-            if (AnserTextBox.Text.Length == 4)
+            string userGuess = AnserTextBox.Text;
+            if (userGuess == "ans?")
+            {
+                AnserTextBox.Text = answer;
+            }
+            else if (userGuess.Length == 4)
             {
                 SubmitAnser();
             }
@@ -145,6 +181,19 @@ namespace WindowsProgrammingFinalProject.GuessNumber
             }
         }
 
+        private void NextRoundButton_Click(object sender, System.EventArgs e)
+        {
+            GameStart();
+        }
+
+        private void GameStart()
+        {
+            answer = game.GetAnswer();
+            ResultRichTextBox.Clear();
+            isGameOver = false;
+            SubmitButton.Enabled = true;
+            NextRoundButton.Enabled = false;
+        }
     }
 
 
