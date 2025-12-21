@@ -93,7 +93,10 @@ namespace WindowsProgrammingFinalProject.GuessNumber
             this.Controls.Add(this.AnserTextBox);
             this.Controls.Add(this.SubmitButton);
             this.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "GuessNumberForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "猜數字";
             this.ResumeLayout(false);
             this.PerformLayout();

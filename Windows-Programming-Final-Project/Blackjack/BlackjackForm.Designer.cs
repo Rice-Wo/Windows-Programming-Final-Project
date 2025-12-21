@@ -156,8 +156,11 @@
             this.Controls.Add(this.HitButton);
             this.Controls.Add(this.StandButton);
             this.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "BlackjackForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "二十一點";
             this.Load += new System.EventHandler(this.BlackjackForm_Load);
             this.ResumeLayout(false);

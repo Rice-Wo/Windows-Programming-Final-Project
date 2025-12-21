@@ -148,7 +148,10 @@
             this.Controls.Add(this.PaperButton);
             this.Controls.Add(this.ScissorButton);
             this.Controls.Add(this.RockButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "RPSForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "剪刀石頭布";
             ((System.ComponentModel.ISupportInitialize)(this.PlayerImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComImage)).EndInit();
