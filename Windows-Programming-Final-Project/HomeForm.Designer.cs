@@ -31,11 +31,15 @@
             this.RPSGameButton = new System.Windows.Forms.Button();
             this.GuessNumberGameButton = new System.Windows.Forms.Button();
             this.BlkjkGameButton = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.AboutTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.TitleLbl = new System.Windows.Forms.Label();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // RPSGameButton
             // 
-            this.RPSGameButton.Location = new System.Drawing.Point(82, 46);
+            this.RPSGameButton.Location = new System.Drawing.Point(82, 78);
             this.RPSGameButton.Margin = new System.Windows.Forms.Padding(4);
             this.RPSGameButton.Name = "RPSGameButton";
             this.RPSGameButton.Size = new System.Drawing.Size(88, 31);
@@ -46,7 +50,7 @@
             // 
             // GuessNumberGameButton
             // 
-            this.GuessNumberGameButton.Location = new System.Drawing.Point(82, 120);
+            this.GuessNumberGameButton.Location = new System.Drawing.Point(82, 130);
             this.GuessNumberGameButton.Margin = new System.Windows.Forms.Padding(4);
             this.GuessNumberGameButton.Name = "GuessNumberGameButton";
             this.GuessNumberGameButton.Size = new System.Drawing.Size(88, 31);
@@ -65,22 +69,54 @@
             this.BlkjkGameButton.UseVisualStyleBackColor = true;
             this.BlkjkGameButton.Click += new System.EventHandler(this.BlkjkGameButton_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AboutTSMI});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(278, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // AboutTSMI
+            // 
+            this.AboutTSMI.Name = "AboutTSMI";
+            this.AboutTSMI.Size = new System.Drawing.Size(43, 20);
+            this.AboutTSMI.Text = "關於";
+            this.AboutTSMI.Click += new System.EventHandler(this.AboutTSMI_Click);
+            // 
+            // TitleLbl
+            // 
+            this.TitleLbl.AutoSize = true;
+            this.TitleLbl.Location = new System.Drawing.Point(97, 45);
+            this.TitleLbl.Name = "TitleLbl";
+            this.TitleLbl.Size = new System.Drawing.Size(58, 16);
+            this.TitleLbl.TabIndex = 4;
+            this.TitleLbl.Text = " 選擇遊戲";
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(278, 282);
+            this.Controls.Add(this.TitleLbl);
             this.Controls.Add(this.BlkjkGameButton);
             this.Controls.Add(this.GuessNumberGameButton);
             this.Controls.Add(this.RPSGameButton);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "HomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Final-Project";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -89,6 +125,9 @@
         private System.Windows.Forms.Button RPSGameButton;
         private System.Windows.Forms.Button GuessNumberGameButton;
         private System.Windows.Forms.Button BlkjkGameButton;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem AboutTSMI;
+        private System.Windows.Forms.Label TitleLbl;
     }
 }
 

@@ -149,6 +149,7 @@
             this.StatsLbl.Size = new System.Drawing.Size(55, 48);
             this.StatsLbl.TabIndex = 10;
             this.StatsLbl.Text = "勝場數：\r\n敗場數：\r\n平手數：\r\n";
+            this.StatsLbl.Click += new System.EventHandler(this.StatsLbl_Click);
             // 
             // BlackjackForm
             // 
