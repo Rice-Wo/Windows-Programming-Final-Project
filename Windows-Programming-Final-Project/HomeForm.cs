@@ -36,5 +36,15 @@ namespace WindowsProgrammingFinalProject
             blackjackForm.ShowDialog();
             this.Show();
         }
+
+        private void AboutTSMI_Click(object sender, EventArgs e)
+        {
+            string version = Application.ProductVersion;
+            string info = $"Windows Programming Final Project\n" +
+                          $"版本: {version}\n" +
+                          $"作者: Rice_Wo\n" +
+                          $"年分: 2025";
+            MessageBox.Show(info);
+        }
     }
 }
